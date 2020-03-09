@@ -8,10 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.HashMap;
@@ -20,7 +17,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/project")
-public class PrpjectController {
+public class ProjectController {
 
     @Autowired
     private ProjcetService projcetService;
@@ -38,5 +35,23 @@ public class PrpjectController {
             Project project1 = projcetService.saveOrUpdate(project);
             return new ResponseEntity<Project>(project1, HttpStatus.OK);
 
+    }
+
+    @GetMapping("/{projectId}")
+    public ResponseEntity<?> findByProjectId(@PathVariable String projectId){
+        Project project = projcetService.findByProjectIdentifier(projectId);
+            return new ResponseEntity<Project>(project, HttpStatus.OK);
+
+        }
+
+    @GetMapping("/all")
+    public Iterable<Project> findAllProject(){
+            return projcetService.findAllProjects();
+    }
+
+    @DeleteMapping("/{projectId}")
+    public ResponseEntity<?> deleteProjectById(@PathVariable String projectId){
+        projcetService.deleteProjectById(projectId);
+        return new ResponseEntity<String>("Project with ID: '"+ projectId +"' was deleted", HttpStatus.OK);
     }
 }
