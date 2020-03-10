@@ -6,7 +6,7 @@ class Layout extends Component {
       <nav className="navbar navbar-expand-sm navbar-dark bg-primary mb-4">
         <div className="container">
           <a className="navbar-brand" href="Dashboard.html">
-            Personal Project Management Tool
+            Layihənin idarə edilməsi
           </a>
           <button
             className="navbar-toggler"
@@ -29,7 +29,7 @@ class Layout extends Component {
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
                 <a className="nav-link " href="register.html">
-                  Sign Up
+                  Qeydiyyat
                 </a>
               </li>
               <li className="nav-item">
