@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-
+import PropTypes from "prop-types"
+import {connect} from "react-redux"
+import {crateProject} from "../../"
 class AddProject extends Component {
   constructor() {
     super();
@@ -101,4 +103,4 @@ class AddProject extends Component {
     );
   }
 }
-export default AddProject;
+export default connect;
